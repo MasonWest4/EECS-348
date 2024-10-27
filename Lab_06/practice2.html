@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>Practice #2</title>
+    <style>
+        #colorParagraph{
+            border: 2px solid black;
+            padding: 20px;
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Customize Color and Border</h2>
+    <p id="colorParagraph">This is all that dummy text. You can change the color and border.</p>
+
+    <label for="textColor">Text Color (RGB): </label>
+    <input type="text" id="textColor" placeholder="e.g., 255, 0, 0 (Red)">
+    <br><br>
+
+    <label for="borderColor">Border Color (RGB): </label>
+    <input type="text" id="borderColor" placeholder="e.g., 0, 255, 0 (Green)">
+    <br><br>
+
+    <label for="borderWidth">Border Width (in pixels): </label>
+    <input type="number" id="borderWidth" min="0" placeholder="Enter width in pixels">
+    <br><br>
+
+    <button onclick="updateStyles()">Apply Changes</button>
+
+    <script>
+        function updateStyles() {
+            const paragraph = document.getElementById("colorParagraph");
+
+            const textColor = document.getElementById("textColor").value;
+            const borderColor = document.getElementById("borderColor").value;
+            const borderWidth = document.getElementById("borderWidth").value;
+
+            if (textColor) {
+                paragraph.style.color = `rgb(${textColor})`;
+            }
+
+            if (borderColor) {
+                paragraph.style.borderColor = `rgb(${borderColor})`;
+            }
+
+            if (borderWidth) {
+                paragraph.style.borderWidth = `${borderWidth}px`;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Multiplication Table</h2>
+    <form method="post">
+        <label for="number">Enter a number:</label>
+        <input type="number" id="number" name="number" min="1" required>
+        <button type="submit">Generate Table</button>
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $number = intval($_POST["number"]);
+
+        echo "<h3>Multiplication Table up to $number x $number</h3>";
+        echo "<table>";
+        
+        // Print the header row
+        echo "<tr><th>*</th>";
+        for ($col = 1; $col <= $number; $col++) {
+            echo "<th>$col</th>";
+        }
+        echo "</tr>";
+        
+        // Generate the multiplication table
+        for ($row = 1; $row <= $number; $row++) {
+            echo "<tr><th>$row</th>"; // Print the row index
+            for ($col = 1; $col <= $number; $col++) {
+                echo "<td>" . ($row * $col) . "</td>";
+            }
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    }
+    ?>
+</body>
+</html>
